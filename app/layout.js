@@ -7,7 +7,7 @@ import Header from "@/components/heading";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "PRQ | Practice Random Question",
+  title: "SM | Self Mock",
   description: "Developed and Designed by Nilendra Patel "
 };
 
