@@ -9,7 +9,7 @@ const Wrapper = ({ children }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -27,7 +27,7 @@ const Wrapper = ({ children }) => {
 
       <style jsx>{`
         .overlay {
-          animation: slideUp 1s forwards;
+          animation: slideUp 2s forwards;
         }
 
         @keyframes slideUp {
