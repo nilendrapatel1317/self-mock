@@ -4,7 +4,7 @@ import axios from "axios";
 import { theme } from "@/utils/buttonColor";
 import { mockQ } from "@/utils/contents";
 import Wrapper from "./Wrapper";
-import { Button, Chip, FormControlLabel, Switch } from "@mui/material";
+import { Button, Chip, FormControlLabel, Switch, Tooltip } from "@mui/material";
 import QuestionDialogBox from "./QuestionDialogBox";
 
 const ShowQuestion = ({ topic }) => {
@@ -89,24 +89,28 @@ const ShowQuestion = ({ topic }) => {
         <div className="main-content w-full h-screen  py-5 flex-col text-3xl text-center px-3 leading-relaxed">
           <div className="flex justify-between sm:justify-around w-full h-[15%]">
             <div className="">
-              <Button
-                variant="contained"
-                theme={theme}
-                color="nilu"
-                onClick={handleShuffle}
-                size="large"
-              >
-                Next
-              </Button>
+              <Tooltip title="Click here for Random Q" placement="bottom">
+                <Button
+                  variant="contained"
+                  theme={theme}
+                  color="nilu"
+                  onClick={handleShuffle}
+                  size="large"
+                >
+                  Next
+                </Button>
+              </Tooltip>
             </div>
 
             <div>
               {currentQuestion?.tag === topic ? (
                 <div>
-                  <Chip
-                    label={"Topic : " + currentQuestion?.tag}
-                    className="w-fit uppercase font-bold text-white  bg-[#28e1bf]"
-                  />
+                  <Tooltip title="Q Based On Topic" placement="bottom">
+                    <Chip
+                      label={"Topic : " + currentQuestion?.tag}
+                      className="w-fit uppercase font-bold text-white  bg-[#28e1bf]"
+                    />
+                  </Tooltip>
                 </div>
               ) : (
                 ""
@@ -117,12 +121,14 @@ const ShowQuestion = ({ topic }) => {
               <p className="text-sm">Random Q Mode</p>
               <FormControlLabel
                 control={
-                  <Switch
-                    theme={theme}
-                    color="nilu"
-                    defaultChecked
-                    onClick={handleToggleRandomMode}
-                  />
+                  <Tooltip title="Random Mode ON / OFF" placement="bottom">
+                    <Switch
+                      theme={theme}
+                      color="nilu"
+                      defaultChecked
+                      onClick={handleToggleRandomMode}
+                    />
+                  </Tooltip>
                 }
               />
             </div>
@@ -160,8 +166,13 @@ const ShowQuestion = ({ topic }) => {
             ) : (
               <div className="w-full h-[80%] pt-40 flex justify-center">
                 <div className=" space-y-3 ">
-                  <p className="font-semibold text-2xl sm:text-3xl text-center">Click Next Button to start...</p>
-                  <p className="text-red-500 text-sm text-center">"If you click the Next button 2-4 times, it means no questions have been added to this section yet."</p>
+                  <p className="font-semibold text-2xl sm:text-3xl text-center">
+                    Click Next Button to start...
+                  </p>
+                  <p className="text-red-500 text-sm text-center">
+                    "If you click the Next button 2-4 times, it means no
+                    questions have been added to this section yet."
+                  </p>
                 </div>
               </div>
             )}

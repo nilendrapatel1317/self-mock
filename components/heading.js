@@ -1,7 +1,7 @@
 "use client";
 // components/Heading.js
 import { theme } from "@/utils/buttonColor";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import React, { useState } from "react";
 import QuestionForm from "./QuestionForm";
 import axios from "axios";
@@ -51,15 +51,17 @@ const Header = () => {
           className="sm:hidden object-contain h-10 border-none"
         />
       </Button>
-      <Button
-        variant="outlined"
-        theme={theme}
-        color="nilu"
-        onClick={() => setFormVisible(!formVisible)}
-        className="font-extrabold border-4 rounded-lg"
-      >
-        <Plus />
-      </Button>
+      <Tooltip title="Add New Question" placement="left">
+        <Button
+          variant="outlined"
+          theme={theme}
+          color="nilu"
+          onClick={() => setFormVisible(!formVisible)}
+          className="font-extrabold border-4 rounded-lg"
+        >
+          <Plus />
+        </Button>
+      </Tooltip>
       {formVisible && (
         <QuestionForm
           handleSubmit={handleSubmit}

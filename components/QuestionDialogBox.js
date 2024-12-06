@@ -6,8 +6,9 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { theme } from "@/utils/buttonColor";
+import { Tooltip } from "@mui/material";
 
-export default function QuestionDialogBox({currentIndex, currentQuestion }) {
+export default function QuestionDialogBox({ currentIndex, currentQuestion }) {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState("paper");
 
@@ -32,15 +33,16 @@ export default function QuestionDialogBox({currentIndex, currentQuestion }) {
 
   return (
     <React.Fragment>
-      <Button
-        variant="outlined"
-        theme={theme}
-        color="nilu"
-
-        onClick={handleClickOpen("paper")}
-      >
-        Answer
-      </Button>
+      <Tooltip title="View Answer" placement="bottom">
+        <Button
+          variant="outlined"
+          theme={theme}
+          color="nilu"
+          onClick={handleClickOpen("paper")}
+        >
+          Answer
+        </Button>
+      </Tooltip>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -57,7 +59,13 @@ export default function QuestionDialogBox({currentIndex, currentQuestion }) {
             ref={descriptionElementRef}
             tabIndex={-1}
           >
-            {currentQuestion?.answer ? currentQuestion?.answer : <p className="text-red-500 font-semibold text-center">Answer Note Avaliable</p>}
+            {currentQuestion?.answer ? (
+              currentQuestion?.answer
+            ) : (
+              <p className="text-red-500 font-semibold text-center">
+                Answer Note Avaliable
+              </p>
+            )}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
