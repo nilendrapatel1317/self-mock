@@ -22,20 +22,6 @@ export function mockQ() {
       question: "Are there any limitations of Inheritance?",
       answer:
         "Inheritance can lead to tightly coupled classes, making maintenance harder. Overusing it may result in complex hierarchies and reduced flexibility. Java avoids multiple inheritance to prevent the diamond problem.",
-      tag: "array"
-    },
-    {
-      id: "1xx004",
-      question: "What are the various types of inheritance?",
-      answer:
-        "The types are: 1) Single, 2) Multilevel, 3) Hierarchical, and 4) Hybrid (through interfaces).",
-      tag: "oops"
-    },
-    {
-      id: "1xx004",
-      question: "What are the various types of inheritance?",
-      answer:
-        "The types are: 1) Single, 2) Multilevel, 3) Hierarchical, and 4) Hybrid (through interfaces).",
       tag: "oops"
     },
     {
@@ -50,7 +36,7 @@ export function mockQ() {
       question: "What is meant by static polymorphism?",
       answer:
         "Static polymorphism, or compile-time polymorphism, is achieved using method overloading. The method to invoke is determined during compilation.",
-      tag: "array"
+      tag: "oops"
     },
     {
       id: "3xx001",

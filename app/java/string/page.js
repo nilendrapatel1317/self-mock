@@ -4,7 +4,7 @@ import React from "react";
 const page = () => {
   return (
     <div>
-      <ShowQuestion topic={"oops"} />
+      <ShowQuestion topic={"string"} />
     </div>
   );
 };

@@ -25,7 +25,7 @@ const Page = () => {
             OOPS
           </Button>
           <Button
-            disabled
+            // disabled
             theme={theme}
             color="nilu"
             variant="contained"
@@ -36,7 +36,7 @@ const Page = () => {
             String
           </Button>
           <Button
-            disabled
+            // disabled
             theme={theme}
             color="nilu"
             variant="contained"

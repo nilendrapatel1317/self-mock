@@ -100,16 +100,18 @@ const ShowQuestion = ({ topic }) => {
               </Button>
             </div>
 
-            {currentQuestion?.tag === topic ? (
-              <div>
-                <Chip
-                  label={"Topic : " + currentQuestion?.tag}
-                  className="w-fit uppercase font-bold text-white  bg-[#28e1bf]"
-                />
-              </div>
-            ) : (
-              ""
-            )}
+            <div>
+              {currentQuestion?.tag === topic ? (
+                <div>
+                  <Chip
+                    label={"Topic : " + currentQuestion?.tag}
+                    className="w-fit uppercase font-bold text-white  bg-[#28e1bf]"
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
 
             <div className="flex items-center flex-col pt-2">
               <p className="text-sm">Random Q Mode</p>
@@ -126,41 +128,44 @@ const ShowQuestion = ({ topic }) => {
             </div>
           </div>
 
-          {currentQuestion?.tag === topic ? (
-            <div className="w-full h-[80%] pt-10">
-              <div className="flex flex-col items-center justify-center gap-10 py-5">
-                {/* <p>Q: {currentIndex}</p> */}
-                <p className="font-semibold">
-                  {currentQuestion?.question
-                    .split(currentQuestion?.key)
-                    .map((part, index) => (
-                      <React.Fragment key={index}>
-                        {index > 0 && (
-                          <span className="text-[#28e1bf] font-bold">
-                            {currentQuestion?.key}
-                          </span>
-                        )}
-                        {part}
-                      </React.Fragment>
-                    ))}
-                </p>
-                <div className="">
-                  <p className="">
-                    <QuestionDialogBox
-                      currentIndex={currentIndex}
-                      currentQuestion={currentQuestion}
-                    />
+          <div>
+            {currentQuestion?.tag === topic ? (
+              <div className="w-full   pt-10">
+                <div className="h-[50vh] flex flex-col items-center justify-center gap-10 py-5">
+                  {/* <p>Q: {currentIndex}</p> */}
+                  <p className="font-semibold">
+                    {currentQuestion?.question
+                      .split(currentQuestion?.key)
+                      .map((part, index) => (
+                        <React.Fragment key={index}>
+                          {index > 0 && (
+                            <span className="text-[#28e1bf] font-bold">
+                              {currentQuestion?.key}
+                            </span>
+                          )}
+                          {part}
+                        </React.Fragment>
+                      ))}
                   </p>
+                  <div className="">
+                    <p className="">
+                      <QuestionDialogBox
+                        currentIndex={currentIndex}
+                        currentQuestion={currentQuestion}
+                      />
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            <div className="w-full h-[80%] pt-40 flex justify-center">
-              <div className="flex flex-col gap-10 py-1 ">
-                <p className="font-semibold">Click Next Button to start...</p>
+            ) : (
+              <div className="w-full h-[80%] pt-40 flex justify-center">
+                <div className=" space-y-3 ">
+                  <p className="font-semibold text-2xl sm:text-3xl text-center">Click Next Button to start...</p>
+                  <p className="text-red-500 text-sm text-center">"If you click the Next button 2-4 times, it means no questions have been added to this section yet."</p>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </Wrapper>

@@ -4,7 +4,7 @@ import { Button, MenuItem, TextField } from "@mui/material";
 import { X } from "lucide-react";
 import React from "react";
 
-const currencies = [
+const topics = [
   {
     value: "sql",
     label: "SQL"
@@ -12,6 +12,14 @@ const currencies = [
   {
     value: "oops",
     label: "Java (OOPS)"
+  },
+  {
+    value: "string",
+    label: "Java (String)"
+  },
+  {
+    value: "array",
+    label: "Java (Array)"
   },
   {
     value: "data structure",
@@ -61,7 +69,7 @@ const QuestionForm = ({
         size={50}
         className="cursor-pointer absolute top-5 right-5 bg-white rounded-full p-2 text-xl"
       />
-      <h1>Add Your Question</h1>
+      <h1>Add Interview Question</h1>
       <form onSubmit={handleSubmit} className="w-96 flex flex-col gap-5">
         <TextField
           label="Enter Your Question"
@@ -97,7 +105,7 @@ const QuestionForm = ({
           onChange={handleFieldChange}
           required
         >
-          {currencies.map((option) => (
+          {topics.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
